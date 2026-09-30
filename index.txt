@@ -1,0 +1,68 @@
+1.-var->function scoped(ignored by block boundaries) (if declared inside a function it belongs exclusively to that function)
+        hoisted & initialized as undefined
+        can reassigned 
+ -let->block scoped(only exist  inside the block boundaries where declared)
+       hoisted but not initialized
+       reassignable
+ -const->block scoped (only exist  inside the block boundaries where declared)
+        hoisted but not initialized
+        not reassignable
+
+2.string,numbers,BigInt,Boolean,Undefined,Null,Symbols
+  primmitive data type are immutable(cannot be altered) while objects and arrays are mutable
+
+3.loose equality compares values for equality after converting types to match while 
+strict equality compares both value and data type without conversion
+-srict equality is best practise because it comparison more predictable since it doesn't convert one type to another.
+
+4.-&&->evaluates expressions from left to right returns value fist falsey or last value if all are truthy
+  -||->evaluates left to right ,returns the first truthy value encountered or last value if all are falsely
+  -!->flips a values truthiness to a strict boolean opposite
+-JavaScript stops early when it already knows the answer
+
+5.switch statement can be used instead oa a long chain of if...elseif statements when checking one value against several possible values.
+-The default block acts as a fallback safety catch.it executes code only when none of the defined cases match the expression,operating like the final else in an if chain.
+
+//Part 1:control flow
+1. truthy and falsey values are values that translate into a boolean(true or false)when evaluated inside a conditional environment-such as if statements.
+   -false
+   -Null
+   -Undefined
+   -0
+   -""-empty string
+
+4.Condition Analysis;
+ if (x == y && typeof x === "string") {
+    console.log("Result A");
+ }
+    -== converts the types before comparing,=== does not and typeof just tells you what type a variable really is.
+    -&& both must be true for the block to returns
+    -once an if condition is true JavaScript ignores every else if and else after it.
+
+//iteration
+6.-initialization-> let i = 0
+  -condition-> i < 3
+  -final expression-> i++
+  The final-expression runs at the end of each iteration,after the loop body has finished,and before the
+ condtion is check again
+
+ 7.A loop invariant is a statement that is true before the loop starts,stays true after every iteration and still true even when the loop ends.
+ -A while loop only stops when its condition becomes false.
+
+ 8.break terminates the loop entirely, while continue skips the rest of the current iteration and jumps straight to the next loop cycle.
+ -break: The counter stops permanently at its current value. The increment expression (e.g., i++) does not run.
+ -continue: The loop jumps directly to the increment expression (e.g., i++). The counter updates normally, and the loop moves to the next number.
+
+10.When i = 0, the inner loop runs 3 times (\(j = 3, 2, 1\)).
+When i = 1, the inner loop runs 2 times (\(j = 3, 2\)).
+When i = 2, the inner loop runs 1 time (\(j = 3\)). 
+Total operations: \(3 + 2 + 1 = 6\). 
+
+//functions
+12.The core difference between a function declaration and a function expression is how they are defined and stored in memory by the browser or runtime,
+ which directly changes how hoisting affects where you can safely call them in your script.
+ -If declared with var, the variable is hoisted and initialized to undefined.
+- If declared with let or const, the variable is hoisted but placed in a "Temporal Dead Zone" (TDZ) and remains uninitialized.
+ -In both cases, the actual function assignment stays exactly where it is written.
+
+ 13.The rest parameter is preffered because it is sipmler and easier to use and creates real array,
